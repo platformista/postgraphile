@@ -15,7 +15,7 @@ hooks:
   build: |
     set -e
     forest login -e $FA_USER_EMAIL -t $FA_TOKEN
-    forest projects:create:sql "pgadmin" --applicationHost "localhost" --applicationPort $PORT --language "typescript" --databaseConnectionURL $DATABASE_URL
+    forest projects:create:sql "pgadmin" --applicationHost "localhost" --applicationPort "$PORT" --language "typescript" --databaseConnectionURL "$DATABASE_URL"
     cd pgadmin
     npm i -s
 
