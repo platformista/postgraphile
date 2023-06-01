@@ -1,6 +1,8 @@
 name: forestadmin
 type: nodejs:18
-flavor: none
+
+build:
+  flavor: none
 
 relationships:
   pg: "postgres:postgresql"
