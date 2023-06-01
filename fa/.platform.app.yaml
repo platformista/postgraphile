@@ -6,9 +6,9 @@ relationships:
 
 hooks:
   build:
-    npm install -g forest-cli
-    forest login -e $FA_USER_EMAIL -t $FA_TOKEN
-    forest projects:create:sql "pgadmin" --applicationHost "localhost" --applicationPort $PORT --language "typescript" --databaseConnectionURL $DATABASE_URL
+    npm i
+    npm run forest:login
+    npm run forest:create
     cd pgadmin
     npm i -s
 
