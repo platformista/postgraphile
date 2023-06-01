@@ -4,12 +4,15 @@ type: nodejs:18
 build:
   flavor: none
 
+dependencies:
+  nodejs:
+    forest-cli: "*"
+
 relationships:
   pg: "postgres:postgresql"
 
 hooks:
   build:
-    npm i -g forest-cli
     forest login -e $FA_USER_EMAIL -t $FA_TOKEN
     forest projects:create:sql "pgadmin" --applicationHost "localhost" --applicationPort $PORT --language "typescript" --databaseConnectionURL $DATABASE_URL
     cd pgadmin
