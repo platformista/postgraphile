@@ -1,0 +1,23 @@
+name: forestadmin
+type: nodejs:18
+
+relationships:
+  pg: "postgres:postgresql"
+
+hooks:
+  build:
+    forest projects:create:sql "pgadmin" --applicationHost "localhost" --applicationPort $PORT --language "typescript" --databaseConnectionURL $DATABASE_URL
+    cd pgadmin
+    npm i -s
+
+web:
+  commands:
+    start: |
+      cd pgadmin
+      npm run start:watch
+
+mounts:
+  "/run": "shared:files/run"
+  "/.cache": "shared:files/.cache"
+
+disk: 1024
