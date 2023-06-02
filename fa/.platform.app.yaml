@@ -4,6 +4,11 @@ type: nodejs:18
 build:
   flavor: none
 
+variables:
+  env:
+    NODE_ENV: production
+    NPM_CONFIG_PRODUCTION: false
+
 relationships:
   pg: "postgres:postgresql"
 
