@@ -1,0 +1,16 @@
+{
+  "name": "fa",
+  "version": "1.0.0",
+  "description": "Forest Admin",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Vincenzo Russo",
+  "license": "ISC",
+  "dependencies": {
+    "@forestadmin/agent": "^1.9.2",
+    "@forestadmin/datasource-sql": "^1.6.4",
+    "pg": "^8.11.0"
+  }
+}
