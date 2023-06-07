@@ -6,7 +6,7 @@ build:
 
 variables:
   env:
-    NODE_ENV: production
+    NODE_ENV: development
     NPM_CONFIG_PRODUCTION: false
 
 relationships:
@@ -26,5 +26,8 @@ web:
 mounts:
   "/run": "shared:files/run"
   "/.cache": "shared:files/.cache"
+  "schema":
+    source: local
+    source_path: schema
 
 disk: 1024
