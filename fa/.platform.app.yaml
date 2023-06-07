@@ -6,7 +6,7 @@ build:
 
 variables:
   env:
-    NODE_ENV: development
+    NODE_ENV: production
     NPM_CONFIG_PRODUCTION: false
 
 relationships:
@@ -16,6 +16,10 @@ hooks:
   build: |
     set -e
     npm install
+  deploy: |
+    set -e
+    export NODE_ENV="development"
+    node deploy.js
 
 web:
   commands:
@@ -26,8 +30,5 @@ web:
 mounts:
   "/run": "shared:files/run"
   "/.cache": "shared:files/.cache"
-  "schema":
-    source: local
-    source_path: schema
 
 disk: 1024
