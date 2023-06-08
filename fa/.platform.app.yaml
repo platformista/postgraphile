@@ -1,0 +1,33 @@
+name: forestadmin
+type: nodejs:18
+
+build:
+  flavor: none
+
+variables:
+  env:
+    NODE_ENV: development
+    NPM_CONFIG_PRODUCTION: false
+
+relationships:
+  pg: "postgres:postgresql"
+
+hooks:
+  build: |
+    set -e
+    npm install
+
+web:
+  commands:
+    start: |
+      set -e
+      npm start
+
+mounts:
+  "/run": "shared:files/run"
+  "/.cache": "shared:files/.cache"
+  "schema":
+    source: local
+    source_path: schema
+
+disk: 1024
