@@ -24,7 +24,7 @@ Once PostGraphile is deployed on platform.sh, it will be running off an empty da
 $ platform sql < /path/to/dump.sql
 ```
 
-NOTE: make sure the dump does not create the database is a schema other than `public`.
+NOTE: make sure the dump does not create the database in a schema other than `public`.
 
 ### SSH into the project
 
