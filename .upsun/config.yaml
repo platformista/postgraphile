@@ -1,5 +1,5 @@
 applications:
-  pg:
+  graphile:
     source:
       root: "/"
     type: nodejs:20
@@ -19,3 +19,8 @@ services:
     configuration:
       extensions:
         - uuid-ossp
+
+routes:
+  https://{default}/:
+    type: upstream
+    upstream: "graphile:http"
