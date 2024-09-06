@@ -1,0 +1,25 @@
+applications:
+  graphile:
+    source:
+      root: "/"
+    type: nodejs:20
+    web:
+      commands:
+        start: "node_modules/.bin/postgraphile"
+    mounts:
+      "/run": "shared:files/run"
+      "/.cache": "shared:files/.cache"
+    relationships:
+      pg: "postgres:postgresql"
+
+services:
+  postgres:
+    type: postgresql:16
+    configuration:
+      extensions:
+        - uuid-ossp
+
+routes:
+  https://{default}/:
+    type: upstream
+    upstream: "graphile:http"

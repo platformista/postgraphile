@@ -1,5 +1,5 @@
 name: graphile
-type: nodejs:18
+type: nodejs:20
 
 relationships:
   pg: "postgres:postgresql"
