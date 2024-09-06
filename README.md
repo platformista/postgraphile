@@ -10,9 +10,9 @@ PostGraphile (formerly PostGraphQL) builds a powerful, extensible and performant
 
 ## Features
 
-- [Node.js 18](https://nodejs.org/en/)
+- [Node.js 20](https://nodejs.org/en/)
 - [PostGraphile 4](https://www.graphile.org/postgraphile)
-- [PostgreSQL 14](https://www.postgresql.org/)
+- [PostgreSQL 16](https://www.postgresql.org/)
 
 ## Interacting with the database
 
