@@ -5,7 +5,7 @@ applications:
     type: nodejs:20
     web:
       commands:
-        start: "node_modules/.bin/postgraphile --watch"
+        start: "node_modules/.bin/postgraphile"
     mounts:
       "/run": "shared:files/run"
       "/.cache": "shared:files/.cache"
