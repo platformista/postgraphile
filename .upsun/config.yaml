@@ -2,7 +2,24 @@ applications:
   graphile:
     source:
       root: "/"
+      operations:
+        check-runtime:
+          command: |
+            set -e
+            bash check-runtime.sh
+    crons:
+      check-runtime:
+        # Run the code below every day at midnight.
+        spec: '0 0 * * *'
+        commands:
+          start: |
+            upsun source-operation:run check-runtime --no-wait --yes
+
     type: nodejs:20
+    hooks:
+      build: |
+        set -e
+        bash install_brew_packages.sh yq
     web:
       commands:
         start: "node_modules/.bin/postgraphile"
