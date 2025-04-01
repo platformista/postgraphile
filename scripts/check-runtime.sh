@@ -3,7 +3,7 @@ set -euo pipefail
 
 CONFIG_FILE=".upsun/config.yaml"
 REGISTRY_URL="https://docs.upsun.com/registry/images/registry.json"
-APP_MACHINE_NAME=$1
+APP_MACHINE_NAME=$(yq e '.applications | keys | .[0]' "$CONFIG_FILE")
 
 # Ensure yq is installed (or install it dynamically if needed)
 if ! command -v yq &> /dev/null; then

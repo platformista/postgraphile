@@ -6,7 +6,7 @@ applications:
         check-runtime:
           command: |
             set -e
-            bash check-runtime.sh
+            bash scripts/check-runtime.sh
     crons:
       check-runtime:
         # Run the code below every day at midnight.
@@ -19,7 +19,7 @@ applications:
     hooks:
       build: |
         set -e
-        bash install_brew_packages.sh yq
+        bash scripts/install_brew_packages.sh yq
     web:
       commands:
         start: "node_modules/.bin/postgraphile"
