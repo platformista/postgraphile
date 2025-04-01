@@ -6,6 +6,7 @@ applications:
         check-runtime:
           command: |
             set -e
+            bash scripts/install_brew_packages.sh yq
             bash scripts/check-runtime.sh
     crons:
       check-runtime:
@@ -16,10 +17,7 @@ applications:
             upsun source-operation:run check-runtime --no-wait --yes
 
     type: nodejs:20
-    hooks:
-      build: |
-        set -e
-        bash scripts/install_brew_packages.sh yq
+
     web:
       commands:
         start: "node_modules/.bin/postgraphile"
