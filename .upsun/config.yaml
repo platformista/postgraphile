@@ -7,7 +7,7 @@ applications:
           command: |
             set -e
             wget -qO scripts/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
-            chmod +x scripts/yq"
+            chmod +x scripts/yq
             export PATH="$(pwd)/scripts/":$PATH
             bash scripts/check-runtime.sh
     crons:
