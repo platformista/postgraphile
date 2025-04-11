@@ -6,11 +6,7 @@ applications:
         check-runtime:
           command: |
             set -e
-#            wget -qO scripts/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
-#            chmod +x scripts/yq
-#            export PATH="$(pwd)/scripts/":$PATH
             bash scripts/check-runtime.sh
-#            rm scripts/yq
     crons:
       check-runtime:
         # Run the code below every day at midnight.
