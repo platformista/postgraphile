@@ -40,11 +40,11 @@ fi
 # Compare current and latest versions
 if [ "$CURRENT_VERSION" != "$LATEST" ]; then
   echo "🔔 Update available for $LANGUAGE:"
-  echo "Current: $CURRENT_VERSION"
-  echo "Latest:  $LATEST"
+  echo "- Current: $CURRENT_VERSION"
+  echo "- Latest:  $LATEST"
   echo "Suggested change in $CONFIG_FILE:"
   echo "type: $LANGUAGE:$LATEST"
-  exit 2
+  exit 0
 else
   echo "✅ Runtime is up to date: $LANGUAGE:$CURRENT_VERSION"
   exit 0

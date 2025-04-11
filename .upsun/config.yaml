@@ -6,10 +6,11 @@ applications:
         check-runtime:
           command: |
             set -e
-            wget -qO scripts/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
-            chmod +x scripts/yq
-            export PATH="$(pwd)/scripts/":$PATH
+#            wget -qO scripts/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+#            chmod +x scripts/yq
+#            export PATH="$(pwd)/scripts/":$PATH
             bash scripts/check-runtime.sh
+#            rm scripts/yq
     crons:
       check-runtime:
         # Run the code below every day at midnight.
@@ -17,13 +18,11 @@ applications:
         commands:
           start: |
             upsun source-operation:run check-runtime --no-wait --yes
-
     type: nodejs:20
     hooks:
       build: |
         set -e
-        wget -qO ${PLATFORM_APP_DIR}/.global/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
-        chmod +x "${PLATFORM_APP_DIR}/.global/bin/yq";
+        curl -fsS https://raw.githubusercontent.com/upsun/snippets/main/src/install-github-asset.sh | bash /dev/stdin "mikefarah/yq"
     web:
       commands:
         start: "node_modules/.bin/postgraphile"
@@ -32,14 +31,12 @@ applications:
       "/.cache": "shared:files/.cache"
     relationships:
       pg: "postgres:postgresql"
-
 services:
   postgres:
     type: postgresql:16
     configuration:
       extensions:
         - uuid-ossp
-
 routes:
   https://{default}/:
     type: upstream
