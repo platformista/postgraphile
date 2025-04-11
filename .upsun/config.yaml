@@ -7,7 +7,10 @@ applications:
           command: |
             set -e
             curl -fsS https://raw.githubusercontent.com/upsun/snippets/main/src/install-github-asset.sh | bash /dev/stdin "mikefarah/yq"
-            bash scripts/check-runtime.sh
+            git checkout -b new-branch
+            bash scripts/check-and-updated-runtime.sh
+            git commit -am "Update runtime"
+            git push -u origin new-branch
     crons:
       check-runtime:
         # Run the code below every day at midnight.
