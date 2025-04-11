@@ -8,7 +8,7 @@ applications:
             set -e
             curl -fsS https://raw.githubusercontent.com/upsun/snippets/main/src/install-github-asset.sh | bash /dev/stdin "mikefarah/yq"
             git checkout -b new-branch
-            bash scripts/check-and-updated-runtime.sh
+            bash scripts/check-and-update-runtime.sh
             git commit -am "Update runtime"
             git push -u origin new-branch
     crons:
