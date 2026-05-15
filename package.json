@@ -14,7 +14,7 @@
   "license": "MIT",
   "repository": "",
   "dependencies": {
-    "postgraphile": "^4.14.0",
+    "postgraphile": "^5.0.3",
     "postgraphile-plugin-nested-mutations": "^1.1.0"
   }
 }
